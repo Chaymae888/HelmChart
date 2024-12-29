@@ -1,0 +1,41 @@
+namespace: "helm1"
+image:
+  backend:
+    repository: chaymae888/my-backend
+    tag: "1.0"
+  frontend:
+    repository: chaymae888/my-frontend
+    tag: "1.1"
+  postgres:
+    repository: chaymae888/my-postgres
+    tag: "1.0"
+
+replicaCount: 1
+
+postgres:
+  db: mydatabase
+  user: admin
+  password: adminpassword
+
+resources:
+  backend:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"
+  frontend:
+    requests:
+      cpu: "500m"
+      memory: "512Mi"
+    limits:
+      cpu: "1"
+      memory: "1Gi"
+  postgres:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "1Gi"
